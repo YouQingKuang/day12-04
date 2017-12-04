@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.2.1.js"></script><base>
+<script type="text/javascript">
+	$(function(){
+		debugger;
+		$("#btn").click(function(){
+			//在jquery中ajax最原始的异步请求，$.post|$.get是将$.ajax进行封装
+			//post请求：第一是：url；第二个：参数，可以省略；第三个：回调函数；
+			//第四个：返回类型，设置为json它的返回值才能转换为json数据
+			//debugger;相对于代码debug，它是js的debug，首先你得打开开发者模式
+			debugger;
+			$.post(
+				"getJson1",
+				function(data){
+					alert(data);
+					debugger;
+					var html ="";
+					for(var i=0;i<data.length;i++){
+						
+						html+="<tr><td>"+data[i].name+"</td><td>"+data[i].age+"</td><td>"+data[i].sex+"</td></tr>";
+					}
+					//alert(html);
+					$("#tb").html(html);
+				},
+				"json"
+			);
+		});
+	});
+</script>
+</head>
+<body>
+	<center>
+		<button id="btn">查询数据</button>
+		<table width="40%">
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+			</tr>
+			<tbody id="tb">
+			</tbody>
+		</table>
+	</center>
+</body>
+</html>
+
+
+
+
+
+</body>
+</html>

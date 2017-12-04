@@ -1,0 +1,23 @@
+1.method=RequestMethod.GET（规定接收方式）
+
+2.spring.thymeleaf.cache=false（修改html不用重启项目）
+
+3.@RequestParam（获取页面参数）
+
+4.@ModelAttribute("User") User user（将数据自动存入对象）
+
+5.@RequestHeader("User-Agent") String userAgent（获取Header的参数）
+
+6.@PathVariable("name") String name（获取url的参数）
+
+7.model.addAttribute("name",name)（返回到页面的数据）
+	<h2 th:text="${name}"></h2>（展示后台数据）
+
+8.reA.addFlashAttribute("pwd",pwd);（像session但是只能使用一次）
+
+9.redirect，forward都是传入到controller中处理
+
+10.传json的方式：
+	①@ResponseBody
+	②@RestController
+	③json视图
